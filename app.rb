@@ -7,6 +7,8 @@ class Battle < Sinatra::Base
 enable :sessions
 $player1 = Player.new
 $player2 = Player.new
+$player1.score = 100
+$player2.score = 100
 
 get '/' do
   erb :index
@@ -23,7 +25,8 @@ get '/play' do
 end
 
 post '/attack' do
-  erb :attack
+  $player2.score -= 10
+  erb :play
 end
 
   # start the server if ruby file executed directly
