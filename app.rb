@@ -1,14 +1,13 @@
 require 'sinatra/base'
 require 'sinatra'
 require './lib/player.rb'
+require './lib/game.rb'
+
 
 class Battle < Sinatra::Base
 
 enable :sessions
-$player1 = Player.new
-$player2 = Player.new
-$player1.score = 100
-$player2.score = 100
+game = Game.new
 
 get '/' do
   erb :index
@@ -25,7 +24,7 @@ get '/play' do
 end
 
 post '/attack' do
-  $player2.score -= 10
+  game.attack_player($player2)
   erb :play
 end
 
