@@ -26,7 +26,7 @@ end
 
 post '/attack' do
   @game = $game
-  @game.attack_player(@game.player2)
+  @game.attack_player(@game.next_attacker)
   redirect '/play'
 end
 
