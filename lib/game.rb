@@ -1,14 +1,18 @@
 class Game
 
-  def initialize
-    $player1 = Player.new
-    $player2 = Player.new
-    $player1.score = 100
-    $player2.score = 100
+  def initialize(player1, player2)
+    @players = [player1, player2]
   end
 
-def attack_player(player)
-  player.score -= 10
-end
+  def player1
+    @players[0]
+  end
 
+  def player2
+    @players[1]
+  end
+
+  def attack_player(player)
+    player.receive_attack
+  end
 end
