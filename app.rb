@@ -20,11 +20,13 @@ post '/names' do
 end
 
 get '/play' do
+  @game = $game
   erb :play
 end
 
 post '/attack' do
-  $game.attack_player($game.player2)
+  @game = $game
+  @game.attack_player(@game.player2)
   redirect '/play'
 end
 
