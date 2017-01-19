@@ -27,7 +27,12 @@ end
 post '/attack' do
   @game = $game
   @game.attack_player(@game.next_attacker)
+  erb :attack_message
+end
+
+get '/attack_message' do
   redirect '/play'
+
 end
 
   # start the server if ruby file executed directly

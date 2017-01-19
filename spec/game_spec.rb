@@ -19,13 +19,24 @@ end
   end
 
     describe "#switch_attacker" do
-       it 'attacked initializes with instance 0' do
+       it 'attacked initializes with instance player2' do
           expect(game.next_attacker).to eq player2
        end
 
       it 'changes the attacker after each attack' do
         game.switch_attacker
         expect(game.next_attacker).to eq player1
+      end
+    end
+
+    describe "#switch_receiver" do
+       it 'attacked initializes with instance player1' do
+          expect(game.next_receiver).to eq player1
+       end
+
+      it 'changes the attacker after each attack' do
+        game.switch_receiver
+        expect(game.next_receiver).to eq player2
       end
     end
 
