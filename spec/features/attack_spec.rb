@@ -11,6 +11,7 @@ feature "Attack" do
     expect($game.player2.score).to eq(90)
   end
   scenario "attack reduces Player1 HP" do
+    click_button "Ok"
     click_button "Attack"
     expect($game.player1.score).to eq(90)
   end

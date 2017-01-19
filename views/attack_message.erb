@@ -1,4 +1,9 @@
+<% if @game.next_receiver.score == 0 || @game.next_attacker.score == 0 %>
+<h2><%=@game.next_receiver.name %> beat <%=@game.next_attacker.name %>! Well done!</h2>
+<% else %>
 <h2><%=@game.next_receiver.name %> attacked <%=@game.next_attacker.name %>! Well done!</h2>
+
+<%end%>
 
 <form action="/play">
   <input type="submit" value="Ok"/>
