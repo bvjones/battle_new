@@ -1,10 +1,20 @@
 class Game
+  @game = nil
   attr_reader :next_attacker, :next_receiver
 
   def initialize(player1, player2)
     @players = [player1, player2]
     @next_attacker = @players[1]
     @next_receiver = @players[0]
+    # self.class.game = self
+  end
+
+  def self.instance #attr reader for game class instance variable- cant use attr_reader
+    @game
+  end
+
+  def self.create(player1, player2)
+    @game = Game.new(player1, player2)
   end
 
   def player1
